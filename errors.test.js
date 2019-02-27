@@ -42,12 +42,36 @@ describe('Add Product', () => {
 });
 
 describe("Function removeProduct", () => {
+    let boll, spade, sten;
+    let threeProducts, oneProduct;
+    let firstElementIndex;
+    beforeEach(() => {
+        boll = { name: "Boll", price: 50 };
+        spade = { name: "Spade", price: 100 };
+        sten = { name: "Sten", price: 1 };
+        threeProducts = [boll, spade, sten];
+        oneProduct = [boll];
+        firstElementIndex = 0;
+    });
+
     test("is implemented", () => {
         expect(functions.removeProduct).toBeDefined();
     });
     test("Returns empty list when removing product in a list with 1 product", () => {
         const products = [{ name: 'apple', price: 15 }];
-        const index = 0;
-        expect(functions.removeProduct(products, index)).toEqual([]);
+        expect(functions.removeProduct(oneProduct, firstElementIndex)).toEqual([]);
+    });
+    test("contains 2 items when removing first product in list with 3 items", () => {
+        expect(functions.removeProduct(threeProducts, firstElementIndex)).toHaveLength(2);
+    });
+    test("removes 'Boll', contain 'Sten' and 'Spade'", () => {
+        expect(functions.removeProduct(threeProducts, firstElementIndex)).toContainEqual(sten);
+        expect(functions.removeProduct(threeProducts, firstElementIndex)).toContainEqual(spade);
+    });
+    describe('Function expensive cheap product', () => {
+        test('is implemented', () => {
+            expect(functions.expensiveCheapProduct).toBeDefined();
+        });
     });
 });
+
