@@ -40,3 +40,14 @@ describe('Add Product', () => {
         expect(functions.addProduct(products, product)).toHaveLength(3);
     });
 });
+
+describe("Function removeProduct", () => {
+    test("is implemented", () => {
+        expect(functions.removeProduct).toBeDefined();
+    });
+    test("Returns empty list when removing product in a list with 1 product", () => {
+        const products = [{ name: 'apple', price: 15 }];
+        const index = 0;
+        expect(functions.removeProduct(products, index)).toEqual([]);
+    });
+});

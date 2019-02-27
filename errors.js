@@ -104,6 +104,11 @@ function menuRemoveProduct(products) {
   return [];
 }
 
+function removeProduct(products, index) {
+  products.splice(index, 1);
+  return products;
+};
+
 function menuSearchProduct(products) {
   const name = readlineSync.question("Mata in namnet på produkten: ");
   const filteredProducts = searchProduct(products, name);
@@ -149,7 +154,8 @@ const functions = {
   main: main,
   addProduct: addProduct,
   totalProductCost: totalProductCost,
-  emptyList: emptyList
+  emptyList: emptyList,
+  removeProduct: removeProduct
 };
 
 if (typeof module === "object") {
