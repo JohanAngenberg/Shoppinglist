@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "errors.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testwatch": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",

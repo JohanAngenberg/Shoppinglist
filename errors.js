@@ -105,9 +105,10 @@ function menuRemoveProduct(products) {
 }
 
 function removeProduct(products, index) {
-  products.splice(index, 1);
-  return products;
-};
+  const updateProducts = [...products];
+  updateProducts.splice(index, 1);
+  return updateProducts;
+}
 
 function menuSearchProduct(products) {
   const name = readlineSync.question("Mata in namnet på produkten: ");
@@ -125,6 +126,10 @@ function searchProduct(products, name) { //name felaktigt deklarerad som namn
 function menuExpensiveCheapProduct(products) {
   console.log("Funktionen är inte implementerad ännu :(");
 }
+
+function expensiveCheapProduct(products) {
+  console.log('Ej implementerat');
+};
 
 function totalProductCost(products) {
   let totalCost = 0;
@@ -155,7 +160,8 @@ const functions = {
   addProduct: addProduct,
   totalProductCost: totalProductCost,
   emptyList: emptyList,
-  removeProduct: removeProduct
+  removeProduct: removeProduct,
+  expensiveCheapProduct: expensiveCheapProduct
 };
 
 if (typeof module === "object") {
