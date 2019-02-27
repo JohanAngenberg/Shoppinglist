@@ -74,4 +74,11 @@ describe("Function removeProduct", () => {
         });
     });
 });
+describe('mock', () => {
+    test('mock console.log()', () => {
+        console.log = jest.fn();
+        console.log('abcd');
+        expect(console.log).toBeCalledWith('abcd');
+    });
+});
 
